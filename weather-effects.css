@@ -1,0 +1,194 @@
+/* Decorative, document-height weather layer. All content remains above this layer in styles.css. */
+.seasonal-atmosphere {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.seasonal-atmosphere > * {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 620ms ease;
+}
+
+/* Warmth is a subtle wash over the complete document, not a foreground overlay. */
+.seasonal-sun {
+  inset: 0;
+  background:
+    radial-gradient(44% 22% at 78% 8%, rgba(255, 208, 101, .19), transparent 72%),
+    radial-gradient(38% 20% at 19% 48%, rgba(255, 226, 145, .12), transparent 75%),
+    radial-gradient(46% 24% at 76% 88%, rgba(255, 210, 112, .13), transparent 76%);
+}
+
+/* Each cloud bank is placed in a different vertical region of the guide. */
+.seasonal-cloud {
+  width: clamp(220px, 27vw, 410px);
+  height: clamp(72px, 8vw, 118px);
+  background:
+    radial-gradient(ellipse at 20% 70%, rgba(255, 253, 247, .78) 0 22%, transparent 23%),
+    radial-gradient(ellipse at 42% 48%, rgba(255, 253, 247, .85) 0 28%, transparent 29%),
+    radial-gradient(ellipse at 67% 60%, rgba(255, 253, 247, .72) 0 24%, transparent 25%),
+    radial-gradient(ellipse at 83% 76%, rgba(255, 253, 247, .61) 0 16%, transparent 17%);
+}
+.seasonal-cloud-one { top: 7%; left: -8%; }
+.seasonal-cloud-two { top: 43%; right: -10%; }
+.seasonal-cloud-three { top: 77%; left: 18%; }
+
+/* A repeated rain field spans the full atmospheric container from hero to footer. */
+.seasonal-rain {
+  inset: -14% -8%;
+  background-image: repeating-linear-gradient(
+    112deg,
+    transparent 0 28px,
+    rgba(38, 96, 122, .20) 29px 30px,
+    transparent 31px 58px
+  );
+  background-size: 72px 116px;
+  transform: translate3d(0, -58px, 0);
+}
+.seasonal-rain::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image: repeating-linear-gradient(
+    112deg,
+    transparent 0 39px,
+    rgba(103, 151, 169, .16) 40px 41px,
+    transparent 42px 78px
+  );
+  background-size: 94px 144px;
+  transform: translate3d(34px, -72px, 0);
+}
+
+/* Petals are repeated across the document, so spring remains visible while visitors scroll. */
+.seasonal-petals {
+  inset: 0;
+}
+.seasonal-petals i {
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 21px;
+  border-radius: 75% 25% 75% 25%;
+  background: #8f4d9e;
+  box-shadow: inset -3px -3px 0 rgba(75, 35, 101, .24), 0 2px 5px rgba(75, 35, 101, .12);
+  opacity: 0;
+  transform: translate3d(0, -32px, 0) rotate(12deg);
+  will-change: transform, opacity;
+}
+.seasonal-petals i:nth-child(1) { top: 2%; left: 5%; --drift: 46px; --turn: 252deg; --fall-delay: -6s; }
+.seasonal-petals i:nth-child(2) { top: 7%; left: 22%; width: 11px; height: 17px; background: #b06cbd; --drift: -38px; --turn: 318deg; --fall-delay: -13s; }
+.seasonal-petals i:nth-child(3) { top: 11%; left: 41%; width: 16px; height: 22px; background: #734487; --drift: 32px; --turn: 235deg; --fall-delay: -3s; }
+.seasonal-petals i:nth-child(4) { top: 15%; left: 62%; width: 10px; height: 16px; background: #b06cbd; --drift: -48px; --turn: 292deg; --fall-delay: -17s; }
+.seasonal-petals i:nth-child(5) { top: 20%; left: 85%; width: 15px; height: 22px; --drift: 41px; --turn: 340deg; --fall-delay: -9s; }
+.seasonal-petals i:nth-child(6) { top: 27%; left: 12%; width: 11px; height: 18px; background: #734487; --drift: -31px; --turn: 218deg; --fall-delay: -15s; }
+.seasonal-petals i:nth-child(7) { top: 34%; left: 34%; width: 15px; height: 21px; background: #b06cbd; --drift: 37px; --turn: 303deg; --fall-delay: -5s; }
+.seasonal-petals i:nth-child(8) { top: 40%; left: 54%; width: 12px; height: 19px; background: #734487; --drift: -42px; --turn: 270deg; --fall-delay: -19s; }
+.seasonal-petals i:nth-child(9) { top: 46%; left: 77%; width: 16px; height: 23px; --drift: 44px; --turn: 328deg; --fall-delay: -11s; }
+.seasonal-petals i:nth-child(10) { top: 53%; left: 4%; width: 10px; height: 16px; background: #b06cbd; --drift: -35px; --turn: 230deg; --fall-delay: -21s; }
+.seasonal-petals i:nth-child(11) { top: 59%; left: 26%; width: 15px; height: 22px; background: #734487; --drift: 39px; --turn: 298deg; --fall-delay: -8s; }
+.seasonal-petals i:nth-child(12) { top: 65%; left: 49%; width: 11px; height: 18px; background: #b06cbd; --drift: -45px; --turn: 250deg; --fall-delay: -16s; }
+.seasonal-petals i:nth-child(13) { top: 70%; left: 70%; width: 16px; height: 22px; --drift: 36px; --turn: 346deg; --fall-delay: -4s; }
+.seasonal-petals i:nth-child(14) { top: 76%; left: 91%; width: 10px; height: 16px; background: #734487; --drift: -32px; --turn: 220deg; --fall-delay: -20s; }
+.seasonal-petals i:nth-child(15) { top: 82%; left: 16%; width: 14px; height: 21px; background: #b06cbd; --drift: 46px; --turn: 310deg; --fall-delay: -7s; }
+.seasonal-petals i:nth-child(16) { top: 87%; left: 39%; width: 11px; height: 17px; background: #734487; --drift: -40px; --turn: 238deg; --fall-delay: -14s; }
+.seasonal-petals i:nth-child(17) { top: 91%; left: 59%; width: 16px; height: 23px; --drift: 35px; --turn: 332deg; --fall-delay: -2s; }
+.seasonal-petals i:nth-child(18) { top: 95%; left: 80%; width: 10px; height: 16px; background: #b06cbd; --drift: -37px; --turn: 264deg; --fall-delay: -18s; }
+.seasonal-petals i:nth-child(19) { top: 6%; left: 95%; width: 13px; height: 20px; background: #734487; --drift: 31px; --turn: 290deg; --fall-delay: -10s; }
+.seasonal-petals i:nth-child(20) { top: 31%; left: 69%; width: 12px; height: 18px; background: #b06cbd; --drift: -46px; --turn: 222deg; --fall-delay: -22s; }
+.seasonal-petals i:nth-child(21) { top: 50%; left: 91%; width: 15px; height: 21px; background: #734487; --drift: 42px; --turn: 315deg; --fall-delay: -12s; }
+.seasonal-petals i:nth-child(22) { top: 73%; left: 35%; width: 10px; height: 16px; background: #b06cbd; --drift: -34px; --turn: 246deg; --fall-delay: -23s; }
+.seasonal-petals i:nth-child(23) { top: 79%; left: 61%; width: 15px; height: 22px; background: #734487; --drift: 40px; --turn: 322deg; --fall-delay: -1s; }
+.seasonal-petals i:nth-child(24) { top: 97%; left: 26%; width: 11px; height: 18px; background: #b06cbd; --drift: -43px; --turn: 236deg; --fall-delay: -17s; }
+
+.site-shell[data-effect="clouds"] .seasonal-cloud { opacity: .32; }
+.site-shell[data-effect="clouds"] .seasonal-cloud-one { animation: seasonal-cloud-drift-left 34s ease-in-out infinite alternate; }
+.site-shell[data-effect="clouds"] .seasonal-cloud-two { animation: seasonal-cloud-drift-right 42s ease-in-out infinite alternate; }
+.site-shell[data-effect="clouds"] .seasonal-cloud-three { animation: seasonal-cloud-drift-left 38s ease-in-out infinite alternate-reverse; }
+
+.site-shell[data-effect="pink-petals"] .seasonal-petals,
+.site-shell[data-effect="petals"] .seasonal-petals {
+  opacity: 1;
+}
+.site-shell[data-effect="pink-petals"] .seasonal-petals i,
+.site-shell[data-effect="petals"] .seasonal-petals i {
+  animation: seasonal-petal-fall 13.5s cubic-bezier(.3, .65, .55, 1) infinite;
+  animation-delay: var(--fall-delay);
+}
+.site-shell[data-effect="pink-petals"] .seasonal-petals i {
+  opacity: .92;
+  background: #e56f9b;
+  box-shadow: inset -3px -3px 0 rgba(165, 47, 91, .28), 0 2px 6px rgba(165, 47, 91, .18);
+}
+.site-shell[data-effect="pink-petals"] .seasonal-petals i:nth-child(3n) { background: #f19cb9; }
+.site-shell[data-effect="pink-petals"] .seasonal-petals i:nth-child(4n) { background: #cf4f82; }
+.site-shell[data-effect="petals"] .seasonal-petals i {
+  opacity: .82;
+}
+
+.site-shell[data-effect="sunny"] .seasonal-sun {
+  opacity: 1;
+  animation: seasonal-sun-glow 7s ease-in-out infinite alternate;
+}
+
+.site-shell[data-effect="rain"] .seasonal-rain {
+  opacity: .48;
+  animation: seasonal-rainfall 1.3s linear infinite;
+}
+.site-shell[data-effect="rain"] .seasonal-rain::after {
+  animation: seasonal-rainfall-secondary 1.8s linear infinite;
+}
+.site-shell[data-effect="rain"] .seasonal-cloud { opacity: .18; }
+.site-shell[data-effect="rain"] .seasonal-cloud-one { animation: seasonal-cloud-drift-left 45s ease-in-out infinite alternate; }
+.site-shell[data-effect="rain"] .seasonal-cloud-two { animation: seasonal-cloud-drift-right 52s ease-in-out infinite alternate; }
+.site-shell[data-effect="rain"] .seasonal-cloud-three { animation: seasonal-cloud-drift-left 48s ease-in-out infinite alternate-reverse; }
+
+@keyframes seasonal-cloud-drift-left {
+  from { transform: translate3d(-3vw, 0, 0); }
+  to { transform: translate3d(14vw, 2vh, 0); }
+}
+@keyframes seasonal-cloud-drift-right {
+  from { transform: translate3d(4vw, 0, 0); }
+  to { transform: translate3d(-13vw, -2vh, 0); }
+}
+@keyframes seasonal-petal-fall {
+  0% { transform: translate3d(0, -32px, 0) rotate(12deg); }
+  28% { transform: translate3d(calc(var(--drift) * -.45), 7vh, 0) rotate(96deg); }
+  56% { transform: translate3d(var(--drift), 15vh, 0) rotate(214deg); }
+  100% { transform: translate3d(calc(var(--drift) * -.32), 29vh, 0) rotate(var(--turn)); }
+}
+@keyframes seasonal-sun-glow {
+  from { opacity: .72; }
+  to { opacity: 1; }
+}
+@keyframes seasonal-rainfall {
+  from { transform: translate3d(0, -58px, 0); }
+  to { transform: translate3d(-22px, 58px, 0); }
+}
+@keyframes seasonal-rainfall-secondary {
+  from { transform: translate3d(34px, -72px, 0); }
+  to { transform: translate3d(8px, 72px, 0); }
+}
+
+@media (max-width: 680px) {
+  .seasonal-cloud { width: 230px; height: 82px; }
+  .seasonal-cloud-one { left: -28%; }
+  .seasonal-cloud-two { right: -35%; }
+  .seasonal-cloud-three { left: -8%; }
+  .seasonal-rain { opacity: 0; }
+  .site-shell[data-effect="rain"] .seasonal-rain { opacity: .34; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-atmosphere,
+  .seasonal-atmosphere *,
+  .seasonal-atmosphere *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
